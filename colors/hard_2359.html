@@ -10,8 +10,7 @@
   h1 { font-size: 18px; }
   .note { font-size: 13px; color: #555; background: #f5f3ee; padding: 10px 12px; border-left: 3px solid #b08442; }
   ul.colors { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
-  ul.colors a { display: block; text-decoration: none; color: #222; border: 1px solid #ddd; padding: 6px; border-radius: 4px; transition: all .15s; }
-  ul.colors a:hover { border-color: #06c755; background: #f0fdf4; }
+  ul.colors li { display: block; color: #222; border: 1px solid #ddd; padding: 6px; border-radius: 4px; }
   ul.colors img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; display: block; }
   ul.colors div { font-size: 11px; line-height: 1.3; margin-top: 4px; text-align: center; }
   .back { margin-top: 24px; }
@@ -119,77 +118,75 @@ ul.colors li { position: relative; transition: background .12s, box-shadow .12s;
 <div class="row"><span class="label">新上代（税抜・2026年6月21日〜）</span><span class="val">¥4,400</span></div>
 <div class="row"><span class="label">改定額</span><span class="val"><span class="diff-up">+¥400 (10.0%増)</span></span></div>
 </div>
-<p class="note">各色の数量を入力し、ページ下部の<b>「LINEで送信する」</b>ボタンをタップすると、発注内容が入った状態で LINE が開きます。<b>内容を確認のうえ、LINE の送信ボタンを押してください。</b><br/>1 色だけ発注する場合は色画像をタップすると、その色単品の発注テンプレートが LINE で開きます（数量は LINE で追記）。<br/>※公式LINE未登録の方は先に <a href="https://lin.ee/v4E9XHO" target="_blank">こちら</a> から友だち追加をお願いします。</p>
+<p class="note">各色の数量を入力し、ページ下部の<b>「LINEで送信する」</b>ボタンをタップすると、発注内容が入った状態で LINE が開きます。<b>内容を確認のうえ、LINE の送信ボタンを押してください。</b><br/>※公式LINE未登録の方は先に <a href="https://lin.ee/v4E9XHO" target="_blank">こちら</a> から友だち追加をお願いします。</p>
 <ul class="colors" data-product="HARD（ハード）">
 <li data-color-name="ワイン" data-color-num="1">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%231%E3%80%80%E3%83%AF%E3%82%A4%E3%83%B3%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="1. ワイン" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_1.jpg"/>
 <div>1. ワイン</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="パープル" data-color-num="2">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%232%E3%80%80%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="2. パープル" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_2.jpg"/>
 <div>2. パープル</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="グリーン" data-color-num="3">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%233%E3%80%80%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="3. グリーン" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_3.jpg"/>
 <div>3. グリーン</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="ローズ" data-color-num="4">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%234%E3%80%80%E3%83%AD%E3%83%BC%E3%82%BA%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="4. ローズ" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_4.jpg"/>
 <div>4. ローズ</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="オールドゴールド" data-color-num="5">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%235%E3%80%80%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%89%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="5. オールドゴールド" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_5.jpg"/>
 <div>5. オールドゴールド</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="ブラウン" data-color-num="6">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%236%E3%80%80%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="6. ブラウン" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_6.jpg"/>
 <div>6. ブラウン</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="ターコイズ" data-color-num="8">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%238%E3%80%80%E3%82%BF%E3%83%BC%E3%82%B3%E3%82%A4%E3%82%BA%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="8. ターコイズ" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_8.jpg"/>
 <div>8. ターコイズ</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="ネイビー" data-color-num="9">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%239%E3%80%80%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="9. ネイビー" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_9.jpg"/>
 <div>9. ネイビー</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="ホワイト" data-color-num="10">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%2310%E3%80%80%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="10. ホワイト" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_10.jpg"/>
 <div>10. ホワイト</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 <li data-color-name="グレー" data-color-num="11">
-<a href="https://line.me/R/oaMessage/@kobe-ribbon/?HARD%EF%BC%88%E3%83%8F%E3%83%BC%E3%83%89%EF%BC%89%0A%2311%E3%80%80%E3%82%B0%E3%83%AC%E3%83%BC%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+
 <img alt="11. グレー" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hard/color_11.jpg"/>
 <div>11. グレー</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div>
 </li>
 </ul>
 <p class="back"><a href="../index.html">← 価格改定のお知らせに戻る</a></p>
 <!-- batch-order-injected -->
-
-<div class="batch-cta" id="batchCta" role="region" aria-label="LINE送信バー">
+<div aria-label="LINE送信バー" class="batch-cta" id="batchCta" role="region">
 <div class="batch-cta-info"><div><span class="count" id="batchCount">0</span>色 / <span id="batchTotalQty">0</span>個</div><div style="margin-top:2px;">LINEを開きます<br/>→ 送信ボタンを押してください</div></div>
-<button class="batch-send" id="batchSend" type="button" disabled>LINEで送信する</button>
+<button class="batch-send" disabled="" id="batchSend" type="button">LINEで送信する</button>
 </div>
-
 <script>
 (function () {
   var ul = document.querySelector('ul.colors[data-product]');

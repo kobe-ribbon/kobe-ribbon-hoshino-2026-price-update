@@ -19,8 +19,7 @@ body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; max-wi
   .stock-box ul { margin: 4px 0 0; padding-left: 18px; }
   .note { font-size: 13px; color: #555; background: #f5f3ee; padding: 10px 12px; border-left: 3px solid #b08442; margin-top: 14px; }
   ul.colors { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
-  ul.colors a { display: block; text-decoration: none; color: #222; border: 1px solid #ddd; padding: 6px; border-radius: 4px; transition: all .15s; }
-  ul.colors a:hover { border-color: #06c755; background: #f0fdf4; }
+  ul.colors li { display: block; color: #222; border: 1px solid #ddd; padding: 6px; border-radius: 4px; }
   ul.colors img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; display: block; background:#f6f6f6; }
   ul.colors div { font-size: 11px; line-height: 1.3; margin-top: 4px; text-align: center; }
   ul.gallery { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
@@ -128,21 +127,19 @@ ul.colors li { position: relative; transition: background .12s, box-shadow .12s;
 <div class="row"><span class="label">新上代（税抜・2026年6月21日〜）</span><span class="val">¥360</span></div>
 <div class="row"><span class="label">改定額</span><span class="val">据え置き</span></div>
 </div>
-<p class="note">各色の数量を入力し、ページ下部の<b>「LINEで送信する」</b>ボタンをタップすると、発注内容が入った状態で LINE が開きます。<b>内容を確認のうえ、LINE の送信ボタンを押してください。</b><br/>1 色だけ発注する場合は色画像をタップすると、その色単品の発注テンプレートが LINE で開きます（数量は LINE で追記）。<br/>※公式LINE未登録の方は先に <a href="https://lin.ee/v4E9XHO" target="_blank">こちら</a> から友だち追加をお願いします。</p>
+<p class="note">各色の数量を入力し、ページ下部の<b>「LINEで送信する」</b>ボタンをタップすると、発注内容が入った状態で LINE が開きます。<b>内容を確認のうえ、LINE の送信ボタンを押してください。</b><br/>※公式LINE未登録の方は先に <a href="https://lin.ee/v4E9XHO" target="_blank">こちら</a> から友だち追加をお願いします。</p>
 <ul class="colors" data-product="キャリーバッグ HK-SS （100枚）">
-<li data-color-name="ホワイト" data-color-num="1"><a href="https://line.me/R/oaMessage/@kobe-ribbon/?%E3%82%AD%E3%83%A3%E3%83%AA%E3%83%BC%E3%83%90%E3%83%83%E3%82%B0%20HK-SS%20%EF%BC%88100%E6%9E%9A%EF%BC%89%0A%231%E3%80%80%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%0A%E6%95%B0%E9%87%8F%EF%BC%9A" rel="noopener" target="_blank" title="この色で発注メッセージを作成">
+<li data-color-name="ホワイト" data-color-num="1">
 <img alt="1. ホワイト" loading="lazy" src="https://hoshino-co.com/shop/html/user_data/assets/img/products/colorchart/hk-ss-100/color_1.jpg"/>
 <div>1. ホワイト</div>
-</a><div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div></li>
+<div class="qty-row"><button aria-label="減らす" class="qty-minus" type="button">−</button><input aria-label="数量" inputmode="numeric" max="99" min="0" type="number" value="0"/><button aria-label="増やす" class="qty-plus" type="button">＋</button></div></li>
 </ul>
 <p class="back"><a href="../../">← 価格改定一覧に戻る</a></p>
 <!-- batch-order-injected -->
-
-<div class="batch-cta" id="batchCta" role="region" aria-label="LINE送信バー">
+<div aria-label="LINE送信バー" class="batch-cta" id="batchCta" role="region">
 <div class="batch-cta-info"><div><span class="count" id="batchCount">0</span>色 / <span id="batchTotalQty">0</span>個</div><div style="margin-top:2px;">LINEを開きます<br/>→ 送信ボタンを押してください</div></div>
-<button class="batch-send" id="batchSend" type="button" disabled>LINEで送信する</button>
+<button class="batch-send" disabled="" id="batchSend" type="button">LINEで送信する</button>
 </div>
-
 <script>
 (function () {
   var ul = document.querySelector('ul.colors[data-product]');

@@ -97,7 +97,7 @@
     padding: 18px 18px 40px;
     color: #2a2520;
     line-height: 1.8;
-    background: #fcfaf6;
+    background: #ffffff;
   }
   h1 {
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
@@ -134,16 +134,26 @@
   body > ul li { margin: 4px 0; }
   body > ul li::marker { color: #b08442; }
   .eff-date {
-    text-align: center;
+    border-left: 2px solid #b08442;
+    padding: 8px 0 8px 14px;
+    margin: 4px 0 26px !important;
     font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-    font-size: 14.5px;
-    letter-spacing: 0.12em;
-    color: #6b4f23;
-    margin: 0 0 22px !important;
-    padding: 6px 0;
-    border-bottom: 1px dotted #d8c89e;
+    line-height: 1.55;
   }
-  .eff-date b { font-weight: 600; }
+  .eff-date .eff-label {
+    display: block;
+    font-size: 12px;
+    color: #6b4f23;
+    letter-spacing: 0.18em;
+    margin-bottom: 2px;
+  }
+  .eff-date .eff-value {
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    color: #2a1d0a;
+    letter-spacing: 0.04em;
+  }
   .apology {
     color: #5a4423;
     font-size: 13.5px;
@@ -155,7 +165,7 @@
 </style></head>
 <body>
 <h1>HOSHINO（星野社）製品<br/>価格改定のお知らせ</h1>
-<p class="eff-date"><b>改定実施日：2026年6月21日（日）受注分より</b></p>
+<p class="eff-date"><span class="eff-label">改定実施日</span><span class="eff-value">2026年6月21日（日）受注分より</span></p>
 <p>
 平素より神戸リボンをご利用いただき、誠にありがとうございます。<br/>
 このたび仕入先である<b>HOSHINO（星野社）</b>より、価格改定のご連絡をいただきましたのでお知らせいたします。<br/>

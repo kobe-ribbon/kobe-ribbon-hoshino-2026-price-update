@@ -1,652 +1,2285 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOSHINO（星野株式会社）価格改定のお知らせ（2026年6月21日〜）</title>
+<style>
+:root {
+  --bg: #f4f5f7;
+  --paper: #ffffff;
+  --ink: #0e0f12;
+  --ink-2: #2a2d33;
+  --ink-3: #6b7280;
+  --line: #d9dce2;
+  --line-2: #e7e9ee;
+  --accent: #0e0f12;   /* near-black: 主役 */
+  --accent-2: #dc2626; /* 強アクセント赤 */
+  --warn-bg: #fff1f1;
+  --line-green: #06c755;
+  --gold: #c9a356;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  font-feature-settings: "palt";
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 14px 80px;
+}
+
+/* ========== Hero ========== */
+.hero {
+  background: #0e0f12;
+  color: #fff;
+  padding: 36px 24px 32px;
+  margin: 0 0 22px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 0%, transparent 50%, rgba(220,38,38,0.18) 100%),
+    radial-gradient(circle at 10% 110%, rgba(201,163,86,0.15), transparent 50%);
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-2) 0%, var(--gold) 100%);
+}
+.hero .eyebrow {
+  position: relative;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+.hero h1 {
+  position: relative;
+  font-size: clamp(22px, 5.8vw, 30px);
+  line-height: 1.32;
+  margin: 0 0 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.hero h1 .ja { font-size: 0.92em; }
+.hero h1 .en {
+  display: block;
+  font-size: 0.58em;
+  font-weight: 500;
+  color: var(--ink-3);
+  margin-top: 8px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.hero .date-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 14px;
+  letter-spacing: 0.04em;
+}
+.hero .date-chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(220,38,38,0.18);
+}
+
+/* ========== Sections ========== */
+section { margin: 24px 0; }
+
+section h2 {
+  font-size: 17px;
+  margin: 0 0 14px;
+  padding: 0 0 10px;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+section h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 56px;
+  height: 3px;
+  background: var(--accent-2);
+}
+section h2 .en {
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+section h2 .count {
+  font-size: 11px;
+  background: #0e0f12;
+  color: #fff;
+  padding: 3px 10px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+.callout {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--ink);
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  border-radius: 2px;
+}
+.callout.brand  { border-left-color: var(--accent-2); }
+.callout.warn   { border-left-color: var(--gold); background:#fbf6e8; }
+.callout b { font-weight: 700; }
+.callout .ico {
+  display: inline-block;
+  width: 22px;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+ul.list-clean {
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 2px;
+}
+ul.list-clean li {
+  padding: 10px 14px 10px 36px;
+  position: relative;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line-2);
+}
+ul.list-clean li:last-child { border-bottom: none; }
+ul.list-clean li::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 18px;
+  width: 10px;
+  height: 2px;
+  background: var(--accent-2);
+}
+
+/* ========== CTA Buttons ========== */
+.cta-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  margin: 16px 0;
+}
+@media (min-width: 600px) {
+  .cta-row { grid-template-columns: 1fr 1fr; }
+}
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 18px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: 1px solid #000;
+  transition: transform .12s ease, box-shadow .12s ease;
+  position: relative;
+}
+.cta:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 0 #0e0f12;
+}
+.cta-excel {
+  background: #fff;
+  color: #0e0f12;
+}
+.cta-line {
+  background: var(--line-green);
+  color: #fff;
+  border-color: #0e0f12;
+}
+.cta-dark {
+  background: #0e0f12;
+  color: #fff;
+}
+.cta .ico {
+  font-size: 16px;
+}
+
+/* ========== Cards Grid ========== */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 600px) {
+  .cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+@media (min-width: 900px) {
+  .cards { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 14px 14px 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 0 #0e0f12;
+  border-color: #0e0f12;
+}
+.card.has-stock {
+  border-left: 3px solid var(--accent-2);
+}
+
+.card .head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted var(--line);
+}
+.card .name {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  line-height: 1.25;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", sans-serif;
+}
+.card .sub {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-top: 4px;
+  line-height: 1.45;
+}
+.badge-new {
+  flex-shrink: 0;
+  background: var(--accent-2);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 4px 7px;
+  letter-spacing: 0.18em;
+  align-self: flex-start;
+  border-radius: 1px;
+}
+
+.price-block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 0;
+}
+.price-left .label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.price-old {
+  font-size: 11px;
+  color: var(--ink-3);
+  text-decoration: line-through;
+}
+.price-arrow {
+  color: var(--ink-3);
+  margin: 0 4px;
+  font-size: 11px;
+}
+.price-new {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-feature-settings: "tnum";
+}
+.ratio-badge {
+  background: #0e0f12;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 7px 9px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-radius: 2px;
+  position: relative;
+}
+.ratio-badge.up {
+  background: var(--accent-2);
+}
+.ratio-badge.up::before {
+  content: "▲";
+  font-size: 9px;
+  margin-right: 2px;
+  vertical-align: 1px;
+}
+.ratio-badge.down {
+  background: #1f7a3a;
+}
+.ratio-badge.down::before {
+  content: "▼";
+  font-size: 9px;
+  margin-right: 2px;
+  vertical-align: 1px;
+}
+.ratio-badge.flat { background: #6b7280; }
+
+.stock-warn {
+  background: var(--warn-bg);
+  border: 1px solid #f3c4c4;
+  border-left: 3px solid var(--accent-2);
+  padding: 8px 10px;
+  font-size: 11.5px;
+  color: var(--accent-2);
+  line-height: 1.5;
+  border-radius: 2px;
+}
+.stock-warn b {
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 0.08em;
+  font-size: 10.5px;
+  text-transform: uppercase;
+}
+
+.card .link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 11px 14px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid var(--ink);
+  margin-top: auto;
+  letter-spacing: 0.04em;
+  transition: all .12s;
+}
+.card .link-btn::after {
+  content: "→";
+  font-weight: 900;
+}
+.card .link-btn:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--ink-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 14px 16px;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+.note b { font-weight: 700; }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 36px 0;
+  position: relative;
+}
+.divider::before {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  background: var(--bg);
+  color: var(--ink-3);
+  padding: 0 12px;
+  font-size: 11px;
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 40px;
+  padding: 18px 0;
+  border-top: 1px solid var(--ink);
+  letter-spacing: 0.04em;
+}
+</style>
 </head>
 <body>
-<h1>HOSHINO（星野株式会社）<br/>価格改定のお知らせ</h1>
-<p><b>改定実施日：2026年6月21日（日）受注分より</b></p>
-<p>
-平素より神戸リボンをご利用いただき、誠にありがとうございます。<br/>
-このたび仕入先である<b>星野株式会社（HOSHINO）</b>より、価格改定のご連絡をいただきましたのでお知らせいたします。
-</p>
-<h2>改定の背景（星野株式会社より）</h2>
-<p>
-昨今の中東情勢の緊迫化に伴い、<b>原油およびナフサなどの原料供給が極めて不安定な状況</b>が続いております。
-原材料メーカーや仕入先からの価格改定を受けざるを得ない状況となっており、
-これまでコスト削減や業務効率化など自助努力により価格の維持に努めてまいりましたが、
-企業努力のみで吸収することが困難な状況に至っているとのことです。
-</p>
-<h2>改定の概要</h2>
-<ul>
-<li><b>実施日</b>：2026年6月21日（日）受注分より</li>
-<li><b>対象商品</b>：カタログ「HOSHINO CATALOG 2025」掲載商品（対象ページ：P14〜15、P86〜203）</li>
-<li><b>改定率の目安</b>：紙製品 10%以上、フィルム製品 20%以上</li>
-<li>P14〜15以外の特注品については別途、神戸リボン担当営業までお問い合わせください</li>
-</ul>
-<p>
-<b>※ 神戸リボンの新価格適用について</b>：当店は土曜15時までの営業のため、
-<b>6月20日（土）15時までのご注文は旧価格</b>、それ以降のご注文は新価格でのご請求となります。
-</p>
-<h2>事前注文に関するお願い</h2>
-<p>
-安定した供給を維持するため、<b>改定前の大量のご注文</b>に関しましては、
-神戸リボン担当営業より<b>数量や出荷日の調整</b>をご相談させていただく場合がございます。
-何卒ご了承くださいますようお願い申し上げます。
-</p>
-<hr/>
-<h2>📋 詳細な価格一覧表（必読）</h2>
-<p>
-<b>以下に掲載している商品は、値上げ商品のごく一部の代表例です。</b><br/>
-WRAPPING（包装紙）・CARRY BAG（キャリーバッグ）以外にも、
-RIBBON（リボン）／ GIFT BOX（ギフトボックス）／ FLOWER VASE（フラワーベース）／
-PACKING（パッキン）／ SHIPPING BOX（出荷用箱）／ CARD（カード）／
-NAME PLATE（ネームプレート）／ TOOL（道具）／ TAKENOMARU（竹の丸）／
-FULL ORDER（フルオーダー）／ SEMI ORDER（セミオーダー）など、
-<b>多数のカテゴリで値上げが実施されます。</b>
-</p>
-<p>
-<b>必ず下記の原本（HOSHINO提供 Excel）にて全カテゴリの新価格をご確認ください。</b>
-</p>
-<p>
-🔗 <b><a href="HOSHINO_2026.6.21_新価格表（原本）.xlsx">HOSHINO 新価格表（全カテゴリ原本・Excel ダウンロード）</a></b>
-</p>
-<hr/>
-<h2>WRAPPING（包装紙）代表的な値上げ商品 48点</h2>
-<p><small>※全体は上記の原本Excelをご確認ください。</small></p>
-<table border="1" cellpadding="6" cellspacing="0" style="width:100%; table-layout:fixed; word-break:break-word; border-collapse:collapse;">
-<thead>
-<tr>
-<th style="padding:6px 4px;">品名</th>
-<th style="text-align:right;;padding:6px 4px;">価格改定</th>
-
-
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding:6px 4px;">EMBALLER<br/><small>アンバレ <span style="color:#888;">／ 80cm×15m</span></small> <small>(新商品)</small> <a href="colors/emballer_3849.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,600</b><br/><small style="color:#888;"><s>¥4,200</s></small> <small style="color:#c8161d;">+9.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">FROSTY<br/><small>フロスティ <span style="color:#888;">／ 65cm×15m</span></small> <small>(新商品)</small> <a href="colors/frosty_3850.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,600</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+21.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">UNE<br/><small>ウネ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/une_3812.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">KENJI<br/><small>ケンジ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/kenji_3814.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">CHORO<br/><small>チョロ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/choro_3813.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">TAMA<br/><small>タマ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/tama_3815.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ROUGH<br/><small>ラフ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/rough_3816.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,400</b><br/><small style="color:#888;"><s>¥3,000</s></small> <small style="color:#c8161d;">+13.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ROUGH WAX<br/><small>ラフワックス <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/rough_wax_3817.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,400</b><br/><small style="color:#888;"><s>¥3,000</s></small> <small style="color:#c8161d;">+13.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">STRIPE<br/><small>ストライプ <span style="color:#888;">／ 65cm×15m</span></small> <a href="colors/stripe_3818.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,600</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+21.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">PARIS<br/><small>パリ <span style="color:#888;">／ 65cm×15m</span></small> <a href="colors/paris_3508.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">AMI<br/><small>アミ <span style="color:#888;">／ 65cm×15m</span></small> <a href="colors/ami_3550.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥5,600</b><br/><small style="color:#888;"><s>¥5,000</s></small> <small style="color:#c8161d;">+12.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">VIVANT<br/><small>ヴィヴァン <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/vivant_2354.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥5,200</b><br/><small style="color:#888;"><s>¥4,800</s></small> <small style="color:#c8161d;">+8.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">FANDE<br/><small>ファンデ <span style="color:#888;">／ 60cm×15m</span></small> <a href="colors/fande_2677.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">山野草装紙<br/><small>山野草装紙（さんやそうそうし） <span style="color:#888;">／ 80cm×20m</span></small> <a href="colors/3658_3658.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,800</b><br/><small style="color:#888;"><s>¥3,400</s></small> <small style="color:#c8161d;">+11.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">JUNE<br/><small>ジューン <span style="color:#888;">／ 80cm×20m</span></small> <a href="colors/june_3659.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,800</b><br/><small style="color:#888;"><s>¥3,400</s></small> <small style="color:#c8161d;">+11.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">MOUGI<br/><small>モーギ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/mougi_3787.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+10.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">BAROQUE Ⅱ<br/><small>バロックⅡ <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/baroque_2358.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,600</b><br/><small style="color:#888;"><s>¥4,200</s></small> <small style="color:#c8161d;">+9.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Riz<br/><small>リズ <span style="color:#888;">／ 80cm×20m</span></small> <a href="colors/riz_3514.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+12.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Riz30<br/><small>リズ30 <span style="color:#888;">／ 30cm×20m</span></small> <a href="colors/riz30_3640.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥2,600</b><br/><small style="color:#888;"><s>¥2,400</s></small> <small style="color:#c8161d;">+8.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Pêche<br/><small>ペッシュ <span style="color:#888;">／ 75cm×20m</span></small> <a href="colors/peche_3516.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+12.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Riz WAX<br/><small>リズワックス30 <span style="color:#888;">／ 80cm×20m</span></small> <a href="colors/riz_wax_3641.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥2,400</s></small> <small style="color:#c8161d;">+50.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Riz WAX30<br/><small>リズワックス30 <span style="color:#888;">／ 30cm×20m</span></small> <a href="colors/riz_wax30_3641.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥2,600</b><br/><small style="color:#888;"><s>¥2,400</s></small> <small style="color:#c8161d;">+8.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Pomme<br/><small>ポム <span style="color:#888;">／ 80cm×20m</span></small> <a href="colors/pomme_3517.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+12.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Raisins<br/><small>レーズン30 <span style="color:#888;">／ 80cm×20m</span></small> <a href="colors/raisins_3642.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,800</b><br/><small style="color:#888;"><s>¥2,400</s></small> <small style="color:#c8161d;">+58.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">Raisins30<br/><small>レーズン30 <span style="color:#888;">／ 30cm×20m</span></small> <a href="colors/raisins30_3642.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥2,600</b><br/><small style="color:#888;"><s>¥2,400</s></small> <small style="color:#c8161d;">+8.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">FLAT PAPER 4560<br/><small>フラットペーパー4560 (10枚入) <span style="color:#888;">／ 450×600mm</span></small> <a href="colors/flat_paper_4560_3808.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,400</b><br/><small style="color:#888;"><s>¥4,000</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">JIU<br/><small>慈雨（ジウ） <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/jiu_3547.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥5,600</b><br/><small style="color:#888;"><s>¥5,000</s></small> <small style="color:#c8161d;">+12.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ROCA<br/><small>ロカ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/roca_3582.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+12.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">BLANC<br/><small>ブラン <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/blanc_3436.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,400</b><br/><small style="color:#888;"><s>¥4,000</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HARD<br/><small>ハード <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/hard_2359.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,400</b><br/><small style="color:#888;"><s>¥4,000</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">AKIRA<br/><small>アキラ <span style="color:#888;">／ 65cm×15m</span></small> <a href="colors/akira_3788.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,400</b><br/><small style="color:#888;"><s>¥3,000</s></small> <small style="color:#c8161d;">+13.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">CURURU<br/><small>くるる <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/cururu_2361.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+12.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">GS CRAPE<br/><small>GSクレープ <span style="color:#888;">／ 75cm×10m</span></small> <a href="colors/gs_crape_2367.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,800</b><br/><small style="color:#888;"><s>¥4,400</s></small> <small style="color:#c8161d;">+9.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">LOG-LOG<br/><small>ログログ <span style="color:#888;">／ 75cm×20m</span></small> <a href="colors/log-log_2368.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,400</b><br/><small style="color:#888;"><s>¥4,000</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DUO CRAPE<br/><small>デュオクレープ <span style="color:#888;">／ 75cm×20m</span></small> <a href="colors/duo_crape_2365.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥5,200</b><br/><small style="color:#888;"><s>¥4,800</s></small> <small style="color:#c8161d;">+8.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">rice<br/><small>ライス <span style="color:#888;">／ 65cm×15m</span></small> <a href="colors/rice_3555.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥6,000</b><br/><small style="color:#888;"><s>¥5,200</s></small> <small style="color:#c8161d;">+15.4%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">rice sack SS<br/><small>ライスサックSS (200枚) <span style="color:#888;">／ 80×150mm</span></small> <a href="colors/rice_sack_ss_3558.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥2,600</b><br/><small style="color:#888;"><s>¥2,200</s></small> <small style="color:#c8161d;">+18.2%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">rice sack S<br/><small>ライスサックS (200枚) <span style="color:#888;">／ 100×190mm</span></small> <a href="colors/rice_sack_s_3559.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,200</b><br/><small style="color:#888;"><s>¥2,600</s></small> <small style="color:#c8161d;">+23.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">rice sack M<br/><small>ライスサックM (200枚) <span style="color:#888;">／ 130×250mm</span></small> <a href="colors/rice_sack_m_3560.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,800</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+18.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">rice sack L<br/><small>ライスサックL (200枚) <span style="color:#888;">／ 180×270mm</span></small> <a href="colors/rice_sack_l_3561.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,800</b><br/><small style="color:#888;"><s>¥4,000</s></small> <small style="color:#c8161d;">+20.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">That's<br/><small>ザッツ <span style="color:#888;">／ 788×545mm</span></small> <a href="colors/that_s_2374.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥44</b><br/><small style="color:#888;"><s>¥40</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ÉNERGIE<br/><small>エナジ <span style="color:#888;">／ 80cm×15m</span></small> <a href="colors/nergie_3520.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥6,000</b><br/><small style="color:#888;"><s>¥5,000</s></small> <small style="color:#c8161d;">+20.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">MOIST<br/><small>モイスト <span style="color:#888;">／ 65cm×15m</span></small> <a href="colors/moist_3426.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,600</b><br/><small style="color:#888;"><s>¥3,800</s></small> <small style="color:#c8161d;">+21.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">YUUKA<br/><small>ゆうか <span style="color:#888;">／ 65cm×30m</span></small> <a href="colors/yuuka_2699.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,200</b><br/><small style="color:#888;"><s>¥3,400</s></small> <small style="color:#c8161d;">+23.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">OP-GLYPH<br/><small>OPグリフ <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/op-glyph_2372.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,800</b><br/><small style="color:#888;"><s>¥3,200</s></small> <small style="color:#c8161d;">+18.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">OP-DELUXE<br/><small>OPデラックス <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/op-deluxe_2373.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥4,400</b><br/><small style="color:#888;"><s>¥3,600</s></small> <small style="color:#c8161d;">+22.2%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">SUGAR<br/><small>シュガー <span style="color:#888;">／ 65cm×20m</span></small> <a href="colors/sugar_3440.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,600</b><br/><small style="color:#888;"><s>¥3,000</s></small> <small style="color:#c8161d;">+20.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HOSHINO KAKERA<br/><small style="color:#888;">W210×D210×H820mm</small><br/><small>(ほしのかけら) お試しアソートボックス</small> <small>(新商品)</small> <a href="colors/hoshino_kakera_3637.html" rel="noopener" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥3,400</b><br/><small style="color:#888;"><s>¥3,000</s></small> <small style="color:#c8161d;">+13.3%</small></td>
-
-
-</tr>
-</tbody>
-</table>
-<p><small>※「色見本」リンクをタップすると、商品の色一覧が開きます。各色をタップで神戸リボン公式LINE宛に在庫確認メッセージが送信できます。</small></p>
-<h2>CARRY BAG（キャリーバッグ）代表的な値上げ商品 43点</h2>
-<p><small>※欠品情報は星野株式会社の発表（2026年05月15日時点）に基づき、該当色のみ商品名の下に赤字で表示しています。表示の無い色は通常通り出荷可能です。</small></p>
-<table border="1" cellpadding="6" cellspacing="0" style="width:100%; table-layout:fixed; word-break:break-word; border-collapse:collapse;">
-<thead>
-<tr>
-<th style="padding:6px 4px;">品名</th>
-<th style="text-align:right;;padding:6px 4px;">価格改定</th>
-
-
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-SS<br/><small style="color:#888;font-size:11px;">W150×G135×H170mm</small><br/><a href="colors/carrybag/k-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">02 ﾍﾞｰｼﾞｭ → 2026年7月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥220</b><br/><small style="color:#888;"><s>¥180</s></small> <small style="color:#c8161d;">+22.2%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-S<br/><small style="color:#888;font-size:11px;">W230×G200×H240mm</small><br/><a href="colors/carrybag/k-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">01 ﾎﾜｲﾄ → 2026年5月下旬以降納品にてご注文承り中<br/>03 ﾌﾞﾗｳﾝ → 2026年6月中旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥280</b><br/><small style="color:#888;"><s>¥230</s></small> <small style="color:#c8161d;">+21.7%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-M<br/><small style="color:#888;font-size:11px;">W290×G250×H300mm</small><br/><a href="colors/carrybag/k-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">03 ﾌﾞﾗｳﾝ → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥380</b><br/><small style="color:#888;"><s>¥290</s></small> <small style="color:#c8161d;">+31.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-L<br/><small style="color:#888;font-size:11px;">W435×G300×H365mm</small><br/><a href="colors/carrybag/k-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中<br/>02 ﾍﾞｰｼﾞｭ → 2026年6月下旬以降納品にてご注文承り中<br/>03 ﾌﾞﾗｳﾝ → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥420</b><br/><small style="color:#888;"><s>¥340</s></small> <small style="color:#c8161d;">+23.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-SL<br/><small style="color:#888;font-size:11px;">W240×G220×H470mm</small><br/><a href="colors/carrybag/k-sl.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">02 ﾍﾞｰｼﾞｭ → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥360</b><br/><small style="color:#888;"><s>¥320</s></small> <small style="color:#c8161d;">+12.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-LL<br/><small style="color:#888;font-size:11px;">W320×G250×H555mm</small><br/><a href="colors/carrybag/k-ll.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">03 ﾌﾞﾗｳﾝ → 2026年6月上旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥440</b><br/><small style="color:#888;"><s>¥400</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">K-SERIES K-TM<br/><small style="color:#888;font-size:11px;">△300×H300mm</small><br/><a href="colors/carrybag/k-tm.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥500</b><br/><small style="color:#888;"><s>¥400</s></small> <small style="color:#c8161d;">+25.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ZB-SERIES ZB-SS<br/><small style="color:#888;font-size:11px;">W150×G135×H170mm</small><br/><a href="colors/carrybag/zb-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥240</b><br/><small style="color:#888;"><s>¥200</s></small> <small style="color:#c8161d;">+20.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ZB-SERIES ZB-S<br/><small style="color:#888;font-size:11px;">W230×G200×H240mm</small><br/><a href="colors/carrybag/zb-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">04 ﾈｲﾋﾞｰ → 2026年7月下旬以降納品にてご注文承り中<br/>06 ﾌﾞﾗｯｸ → 2026年6月上旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥300</b><br/><small style="color:#888;"><s>¥270</s></small> <small style="color:#c8161d;">+11.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ZB-SERIES ZB-M<br/><small style="color:#888;font-size:11px;">W290×G250×H300mm</small><br/><a href="colors/carrybag/zb-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">06 ﾌﾞﾗｯｸ → 2026年8月上旬以降納品にてご注文承り中<br/>04 ﾈｲﾋﾞｰ → 2026年8月上旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥420</b><br/><small style="color:#888;"><s>¥340</s></small> <small style="color:#c8161d;">+23.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ZB-SERIES ZB-L<br/><small style="color:#888;font-size:11px;">W435×G300×H365mm</small><br/><a href="colors/carrybag/zb-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">04 ﾈｲﾋﾞｰ → 2026年8月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥460</b><br/><small style="color:#888;"><s>¥410</s></small> <small style="color:#c8161d;">+12.2%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ZB-SERIES ZB-WS<br/><small style="color:#888;font-size:11px;">W390×G220×H300mm</small><br/><a href="colors/carrybag/zb-ws.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥420</b><br/><small style="color:#888;"><s>¥340</s></small> <small style="color:#c8161d;">+23.5%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">ZB-SERIES ZB-TM<br/><small style="color:#888;font-size:11px;">△300×H300mm</small><br/><a href="colors/carrybag/zb-tm.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥560</b><br/><small style="color:#888;"><s>¥500</s></small> <small style="color:#c8161d;">+12.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-SS<br/><small style="color:#888;font-size:11px;">W150×G135×H170mm</small><br/><a href="colors/carrybag/hk-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥360</b><br/><small style="color:#888;"><s>¥360</s></small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-S<br/><small style="color:#888;font-size:11px;">W230×G200×H240mm</small><br/><a href="colors/carrybag/hk-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥440</b><br/><small style="color:#888;"><s>¥390</s></small> <small style="color:#c8161d;">+12.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-M<br/><small style="color:#888;font-size:11px;">W290×G250×H300mm</small><br/><a href="colors/carrybag/hk-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">01 ﾎﾜｲﾄ → 2026年6月中旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥600</b><br/><small style="color:#888;"><s>¥510</s></small> <small style="color:#c8161d;">+17.6%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-L<br/><small style="color:#888;font-size:11px;">W435×G300×H365mm</small><br/><a href="colors/carrybag/hk-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥680</b><br/><small style="color:#888;"><s>¥590</s></small> <small style="color:#c8161d;">+15.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-JS<br/><small style="color:#888;font-size:11px;">W250×G180×H250mm</small><br/><a href="colors/carrybag/hk-js.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥440</b><br/><small style="color:#888;"><s>¥390</s></small> <small style="color:#c8161d;">+12.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-JM<br/><small style="color:#888;font-size:11px;">W350×G230×H300mm</small><br/><a href="colors/carrybag/hk-jm.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥600</b><br/><small style="color:#888;"><s>¥510</s></small> <small style="color:#c8161d;">+17.6%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-BS<br/><small style="color:#888;font-size:11px;">W350×H500mm</small><br/><a href="colors/carrybag/hk-bs.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥440</b><br/><small style="color:#888;"><s>¥430</s></small> <small style="color:#c8161d;">+2.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HK-SERIES HK-BM<br/><small style="color:#888;font-size:11px;">W500×H600mm</small><br/><a href="colors/carrybag/hk-bm.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥560</b><br/><small style="color:#888;"><s>¥510</s></small> <small style="color:#c8161d;">+9.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WAX BAG WAX BAG-SS<br/><small style="color:#888;font-size:11px;">W150×G135×H170mm</small><br/><a href="colors/carrybag/wax-bag-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥280</b><br/><small style="color:#888;"><s>¥230</s></small> <small style="color:#c8161d;">+21.7%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WAX BAG WAX BAG-S<br/><small style="color:#888;font-size:11px;">W230×G200×H240mm</small><br/><a href="colors/carrybag/wax-bag-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥360</b><br/><small style="color:#888;"><s>¥270</s></small> <small style="color:#c8161d;">+33.3%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WAX BAG WAX BAG-M<br/><small style="color:#888;font-size:11px;">W290×G250×H300mm</small><br/><a href="colors/carrybag/wax-bag-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">全色 → 2026年6月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥480</b><br/><small style="color:#888;"><s>¥320</s></small> <small style="color:#c8161d;">+50.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WAX BAG WAX BAG-L<br/><small style="color:#888;font-size:11px;">W435×G300×H365mm</small><br/><a href="colors/carrybag/wax-bag-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥540</b><br/><small style="color:#888;"><s>¥460</s></small> <small style="color:#c8161d;">+17.4%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WW-SERIES WW-SS<br/><small style="color:#888;font-size:11px;">W150×G135×H170mm</small><br/><a href="colors/carrybag/ww-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥300</b><br/><small style="color:#888;"><s>¥270</s></small> <small style="color:#c8161d;">+11.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WW-SERIES WW-S<br/><small style="color:#888;font-size:11px;">W230×G200×H240mm</small><br/><a href="colors/carrybag/ww-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥400</b><br/><small style="color:#888;"><s>¥360</s></small> <small style="color:#c8161d;">+11.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WW-SERIES WW-M<br/><small style="color:#888;font-size:11px;">W290×G250×H300mm</small><br/><a href="colors/carrybag/ww-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥600</b><br/><small style="color:#888;"><s>¥590</s></small> <small style="color:#c8161d;">+1.7%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WW-SERIES WW-L<br/><small style="color:#888;font-size:11px;">W435×G300×H365mm</small><br/><a href="colors/carrybag/ww-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥680</b><br/><small style="color:#888;"><s>¥660</s></small> <small style="color:#c8161d;">+3.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DN-SERIES DN-SS<br/><small style="color:#888;font-size:11px;">W150×G135×H170mm</small><br/><a href="colors/carrybag/dn-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥280</b><br/><small style="color:#888;"><s>¥200</s></small> <small style="color:#c8161d;">+40.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DN-SERIES DN-S<br/><small style="color:#888;font-size:11px;">W230×G200×H240mm</small><br/><a href="colors/carrybag/dn-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥360</b><br/><small style="color:#888;"><s>¥280</s></small> <small style="color:#c8161d;">+28.6%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DN-SERIES DN-M<br/><small style="color:#888;font-size:11px;">W290×G250×H300mm</small><br/><a href="colors/carrybag/dn-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">全色 → 2026年6月上旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥480</b><br/><small style="color:#888;"><s>¥340</s></small> <small style="color:#c8161d;">+41.2%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DN-SERIES DN-L<br/><small style="color:#888;font-size:11px;">W435×G300×H365mm</small><br/><a href="colors/carrybag/dn-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">全色 → 2026年8月上旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥540</b><br/><small style="color:#888;"><s>¥400</s></small> <small style="color:#c8161d;">+35.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DN-SERIES DN-TM<br/><small style="color:#888;font-size:11px;">△300×H300mm</small><br/><a href="colors/carrybag/dn-tm.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥580</b><br/><small style="color:#888;"><s>¥440</s></small> <small style="color:#c8161d;">+31.8%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">DN-SERIES DN-IP<br/><small style="color:#888;font-size:11px;">□280×H430×底□150mm</small><br/><a href="colors/carrybag/dn-ip.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a><br/><small style="color:#c8161d; font-size:11px; line-height:1.4;">全色 → 2026年5月下旬以降納品にてご注文承り中</small></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥500</b><br/><small style="color:#888;"><s>¥400</s></small> <small style="color:#c8161d;">+25.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WK-SERIES WK-SS<br/><small style="color:#888;font-size:11px;">W180×G100×H200mm</small><br/><a href="colors/carrybag/wk-ss.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥200</b><br/><small style="color:#888;"><s>¥180</s></small> <small style="color:#c8161d;">+11.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WK-SERIES WK-S<br/><small style="color:#888;font-size:11px;">W260×G160×H280mm</small><br/><a href="colors/carrybag/wk-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥220</b><br/><small style="color:#888;"><s>¥200</s></small> <small style="color:#c8161d;">+10.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WK-SERIES WK-M<br/><small style="color:#888;font-size:11px;">W350×G220×H380mm</small><br/><a href="colors/carrybag/wk-m.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥280</b><br/><small style="color:#888;"><s>¥250</s></small> <small style="color:#c8161d;">+12.0%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">WK-SERIES WK-L<br/><small style="color:#888;font-size:11px;">W380×G150×H500mm</small><br/><a href="colors/carrybag/wk-l.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥300</b><br/><small style="color:#888;"><s>¥270</s></small> <small style="color:#c8161d;">+11.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">GB-SERIES GB-S<br/><small style="color:#888;font-size:11px;">W260×G160×H265mm</small><br/><a href="colors/carrybag/gb-s.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥200</b><br/><small style="color:#888;"><s>¥180</s></small> <small style="color:#c8161d;">+11.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">GB-SERIES GB-S用底板<br/><small style="color:#888;font-size:11px;">250×150mm</small><br/><a href="colors/carrybag/gb-s用底板.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥7</b><br/><small style="color:#888;"><s>¥6</s></small> <small style="color:#c8161d;">+16.7%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">HANDLE BAG<br/><small style="color:#888;font-size:11px;">W220×G110×H270mm フラップ80mm</small><br/><a href="colors/carrybag/handle-bag.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥300</b><br/><small style="color:#888;"><s>¥280</s></small> <small style="color:#c8161d;">+7.1%</small></td>
-
-
-</tr>
-<tr>
-<td style="padding:6px 4px;">R-BAG<br/><small style="color:#888;font-size:11px;">W390×G200×H360/口折45mm</small><br/><a href="colors/carrybag/r-bag.html" rel="noopener" style="font-size:12px;" target="_blank">色見本（発注）</a></td>
-<td style="text-align:right; white-space:nowrap; line-height:1.5;;padding:6px 4px;"><b>¥2,400</b><br/><small style="color:#888;"><s>¥2,000</s></small> <small style="color:#c8161d;">+20.0%</small></td>
-
-
-</tr>
-</tbody>
-</table>
-<p>
-<small>
-※価格はすべて<b>税抜上代</b>です。卸価格・お見積もりについては神戸リボンまで個別にお問い合わせください。<br/>
-※「現上代」はHOSオンラインショップ公開時点の参考価格、「新上代」は星野株式会社新価格表（2026.6.21〜）に基づきます。<br/>
-※赤字の納期表示が無い色は、現時点で通常通り出荷可能です（最新状況は神戸リボンまでお問い合わせください）。
-</small>
-</p>
-<hr/>
-<h2>お問い合わせ</h2>
-<p>
-本案内に関するお問い合わせ・ご発注は、神戸リボン公式LINEまでご連絡ください。<br/>
-🔗 <b><a href="https://lin.ee/v4E9XHO" rel="noopener" target="_blank">神戸リボン公式LINE（友だち追加）</a></b>
-</p>
-<p>
-<small>WRAPPINGの色見本ページからは、商品名・色名を入力した状態で公式LINEを開けます。</small>
-</p>
-<hr/>
-<p><small>神戸リボン株式会社 ／ 発信日：2026年05月15日</small></p>
+<div class="container">
+
+  <section class="hero">
+    <p class="eyebrow">PRICE REVISION NOTICE</p>
+    <h1>HOSHINO（星野株式会社）<br>価格改定のお知らせ
+      <small>仕入先より価格改定のご連絡をいただきました</small>
+    </h1>
+    <span class="date-chip">改定実施日：2026年6月21日（日）受注分〜</span>
+  </section>
+
+  <p style="font-size:14px;">
+    平素より神戸リボンをご利用いただき、誠にありがとうございます。<br>
+    このたび仕入先である <b>星野株式会社（HOSHINO）</b> より価格改定のご連絡をいただきましたのでお知らせいたします。
+  </p>
+
+  <section>
+    <h2>改定の背景</h2>
+    <div class="callout">
+      昨今の中東情勢の緊迫化に伴い、<b>原油およびナフサなどの原料供給が極めて不安定な状況</b>が続いております。
+      原材料メーカーや仕入先からの価格改定を受けざるを得ない状況となっており、
+      企業努力のみで吸収することが困難な状況に至っているとのことです。
+    </div>
+  </section>
+
+  <section>
+    <h2>改定の概要</h2>
+    <ul class="list-clean">
+      <li><b>実施日</b>：2026年6月21日（日）受注分より</li>
+      <li><b>対象商品</b>：カタログ「HOSHINO CATALOG 2025」掲載商品（P14〜15、P86〜203）</li>
+      <li><b>改定率の目安</b>：紙製品 10%以上、フィルム製品 20%以上</li>
+      <li>P14〜15 以外の特注品は神戸リボン担当営業までお問い合わせください</li>
+    </ul>
+    <div class="callout brand">
+      <span class="ico">⏰</span><b>神戸リボンの新価格適用</b>：当店は土曜15時までの営業のため、
+      <b>6月20日（土）15時までのご注文は旧価格</b>、それ以降は新価格でのご請求となります。
+    </div>
+    <div class="callout warn">
+      <span class="ico">📦</span><b>事前注文に関するお願い</b>：安定供給維持のため、
+      改定前の大量のご注文については、担当営業より<b>数量や出荷日の調整</b>をご相談させていただく場合がございます。
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>📋 詳細な価格一覧表（必読）</h2>
+    <div class="callout">
+      <b>以下に掲載している商品は、値上げ商品のごく一部の代表例です。</b><br>
+      WRAPPING（包装紙）・CARRY BAG（キャリーバッグ）以外にも、
+      RIBBON ／ GIFT BOX ／ FLOWER VASE ／ PACKING ／ SHIPPING BOX ／ CARD ／
+      NAME PLATE ／ TOOL ／ TAKENOMARU ／ FULL ORDER ／ SEMI ORDER など、
+      <b>多数のカテゴリで値上げが実施されます。</b><br><br>
+      必ず下記の原本（HOSHINO提供 Excel）にて全カテゴリの新価格をご確認ください。
+    </div>
+    <div class="cta-row">
+      <a href="HOSHINO_2026.6.21_新価格表（原本）.xlsx" class="cta cta-excel">
+        <span class="ico">📥</span>新価格表（原本Excel）ダウンロード
+      </a>
+      <a href="https://lin.ee/v4E9XHO" target="_blank" rel="noopener" class="cta cta-line">
+        <span class="ico">💬</span>神戸リボン公式LINE 友だち追加
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>WRAPPING（包装紙）<span class="count">48点</span></h2>
+    <p style="font-size:12px;color:var(--ink-soft);margin:0 0 12px;">※全体は上記の原本Excelをご確認ください。</p>
+<div class="cards">
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">EMBALLER</div>
+        <div class="sub">アンバレ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      <span class="badge-new">NEW</span>
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,600</div>
+      </div>
+      <span class="ratio-badge up">+9.5%</span>
+    </div>
+    <a href="colors/emballer_3849.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">FROSTY</div>
+        <div class="sub">フロスティ <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      <span class="badge-new">NEW</span>
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,600</div>
+      </div>
+      <span class="ratio-badge up">+21.1%</span>
+    </div>
+    <a href="colors/frosty_3850.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">UNE</div>
+        <div class="sub">ウネ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/une_3812.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">KENJI</div>
+        <div class="sub">ケンジ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/kenji_3814.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">CHORO</div>
+        <div class="sub">チョロ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/choro_3813.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">TAMA</div>
+        <div class="sub">タマ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/tama_3815.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ROUGH</div>
+        <div class="sub">ラフ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,400</div>
+      </div>
+      <span class="ratio-badge up">+13.3%</span>
+    </div>
+    <a href="colors/rough_3816.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ROUGH WAX</div>
+        <div class="sub">ラフワックス <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,400</div>
+      </div>
+      <span class="ratio-badge up">+13.3%</span>
+    </div>
+    <a href="colors/rough_wax_3817.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">STRIPE</div>
+        <div class="sub">ストライプ <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,600</div>
+      </div>
+      <span class="ratio-badge up">+21.1%</span>
+    </div>
+    <a href="colors/stripe_3818.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">PARIS</div>
+        <div class="sub">パリ <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/paris_3508.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">AMI</div>
+        <div class="sub">アミ <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥5,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥5,600</div>
+      </div>
+      <span class="ratio-badge up">+12.0%</span>
+    </div>
+    <a href="colors/ami_3550.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">VIVANT</div>
+        <div class="sub">ヴィヴァン <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥5,200</div>
+      </div>
+      <span class="ratio-badge up">+8.3%</span>
+    </div>
+    <a href="colors/vivant_2354.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">FANDE</div>
+        <div class="sub">ファンデ <span style="color:#888;">／ 60cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/fande_2677.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">山野草装紙</div>
+        <div class="sub">山野草装紙（さんやそうそうし） <span style="color:#888;">／ 80cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,800</div>
+      </div>
+      <span class="ratio-badge up">+11.8%</span>
+    </div>
+    <a href="colors/3658_3658.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">JUNE</div>
+        <div class="sub">ジューン <span style="color:#888;">／ 80cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,800</div>
+      </div>
+      <span class="ratio-badge up">+11.8%</span>
+    </div>
+    <a href="colors/june_3659.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">MOUGI</div>
+        <div class="sub">モーギ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+10.5%</span>
+    </div>
+    <a href="colors/mougi_3787.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">BAROQUE Ⅱ</div>
+        <div class="sub">バロックⅡ <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,600</div>
+      </div>
+      <span class="ratio-badge up">+9.5%</span>
+    </div>
+    <a href="colors/baroque_2358.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Riz</div>
+        <div class="sub">リズ <span style="color:#888;">／ 80cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+12.5%</span>
+    </div>
+    <a href="colors/riz_3514.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Riz30</div>
+        <div class="sub">リズ30 <span style="color:#888;">／ 30cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥2,600</div>
+      </div>
+      <span class="ratio-badge up">+8.3%</span>
+    </div>
+    <a href="colors/riz30_3640.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Pêche</div>
+        <div class="sub">ペッシュ <span style="color:#888;">／ 75cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+12.5%</span>
+    </div>
+    <a href="colors/peche_3516.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Riz WAX</div>
+        <div class="sub">リズワックス30 <span style="color:#888;">／ 80cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+50.0%</span>
+    </div>
+    <a href="colors/riz_wax_3641.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Riz WAX30</div>
+        <div class="sub">リズワックス30 <span style="color:#888;">／ 30cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥2,600</div>
+      </div>
+      <span class="ratio-badge up">+8.3%</span>
+    </div>
+    <a href="colors/riz_wax30_3641.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Pomme</div>
+        <div class="sub">ポム <span style="color:#888;">／ 80cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+12.5%</span>
+    </div>
+    <a href="colors/pomme_3517.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Raisins</div>
+        <div class="sub">レーズン30 <span style="color:#888;">／ 80cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,800</div>
+      </div>
+      <span class="ratio-badge up">+58.3%</span>
+    </div>
+    <a href="colors/raisins_3642.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">Raisins30</div>
+        <div class="sub">レーズン30 <span style="color:#888;">／ 30cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥2,600</div>
+      </div>
+      <span class="ratio-badge up">+8.3%</span>
+    </div>
+    <a href="colors/raisins30_3642.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">FLAT PAPER 4560</div>
+        <div class="sub">フラットペーパー4560 (10枚入) <span style="color:#888;">／ 450×600mm</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,400</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <a href="colors/flat_paper_4560_3808.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">JIU</div>
+        <div class="sub">慈雨（ジウ） <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥5,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥5,600</div>
+      </div>
+      <span class="ratio-badge up">+12.0%</span>
+    </div>
+    <a href="colors/jiu_3547.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ROCA</div>
+        <div class="sub">ロカ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+12.5%</span>
+    </div>
+    <a href="colors/roca_3582.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">BLANC</div>
+        <div class="sub">ブラン <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,400</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <a href="colors/blanc_3436.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HARD</div>
+        <div class="sub">ハード <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,400</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <a href="colors/hard_2359.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">AKIRA</div>
+        <div class="sub">アキラ <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,400</div>
+      </div>
+      <span class="ratio-badge up">+13.3%</span>
+    </div>
+    <a href="colors/akira_3788.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">CURURU</div>
+        <div class="sub">くるる <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+12.5%</span>
+    </div>
+    <a href="colors/cururu_2361.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">GS CRAPE</div>
+        <div class="sub">GSクレープ <span style="color:#888;">／ 75cm×10m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,800</div>
+      </div>
+      <span class="ratio-badge up">+9.1%</span>
+    </div>
+    <a href="colors/gs_crape_2367.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">LOG-LOG</div>
+        <div class="sub">ログログ <span style="color:#888;">／ 75cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,400</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <a href="colors/log-log_2368.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">DUO CRAPE</div>
+        <div class="sub">デュオクレープ <span style="color:#888;">／ 75cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥5,200</div>
+      </div>
+      <span class="ratio-badge up">+8.3%</span>
+    </div>
+    <a href="colors/duo_crape_2365.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">rice</div>
+        <div class="sub">ライス <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥5,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥6,000</div>
+      </div>
+      <span class="ratio-badge up">+15.4%</span>
+    </div>
+    <a href="colors/rice_3555.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">rice sack SS</div>
+        <div class="sub">ライスサックSS (200枚) <span style="color:#888;">／ 80×150mm</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥2,600</div>
+      </div>
+      <span class="ratio-badge up">+18.2%</span>
+    </div>
+    <a href="colors/rice_sack_ss_3558.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">rice sack S</div>
+        <div class="sub">ライスサックS (200枚) <span style="color:#888;">／ 100×190mm</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,600</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,200</div>
+      </div>
+      <span class="ratio-badge up">+23.1%</span>
+    </div>
+    <a href="colors/rice_sack_s_3559.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">rice sack M</div>
+        <div class="sub">ライスサックM (200枚) <span style="color:#888;">／ 130×250mm</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,800</div>
+      </div>
+      <span class="ratio-badge up">+18.8%</span>
+    </div>
+    <a href="colors/rice_sack_m_3560.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">rice sack L</div>
+        <div class="sub">ライスサックL (200枚) <span style="color:#888;">／ 180×270mm</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥4,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,800</div>
+      </div>
+      <span class="ratio-badge up">+20.0%</span>
+    </div>
+    <a href="colors/rice_sack_l_3561.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">That's</div>
+        <div class="sub">ザッツ <span style="color:#888;">／ 788×545mm</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥40</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥44</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <a href="colors/that_s_2374.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ÉNERGIE</div>
+        <div class="sub">エナジ <span style="color:#888;">／ 80cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥5,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥6,000</div>
+      </div>
+      <span class="ratio-badge up">+20.0%</span>
+    </div>
+    <a href="colors/nergie_3520.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">MOIST</div>
+        <div class="sub">モイスト <span style="color:#888;">／ 65cm×15m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,800</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,600</div>
+      </div>
+      <span class="ratio-badge up">+21.1%</span>
+    </div>
+    <a href="colors/moist_3426.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">YUUKA</div>
+        <div class="sub">ゆうか <span style="color:#888;">／ 65cm×30m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,200</div>
+      </div>
+      <span class="ratio-badge up">+23.5%</span>
+    </div>
+    <a href="colors/yuuka_2699.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">OP-GLYPH</div>
+        <div class="sub">OPグリフ <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,800</div>
+      </div>
+      <span class="ratio-badge up">+18.8%</span>
+    </div>
+    <a href="colors/op-glyph_2372.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">OP-DELUXE</div>
+        <div class="sub">OPデラックス <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,600</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥4,400</div>
+      </div>
+      <span class="ratio-badge up">+22.2%</span>
+    </div>
+    <a href="colors/op-deluxe_2373.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">SUGAR</div>
+        <div class="sub">シュガー <span style="color:#888;">／ 65cm×20m</span></div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,600</div>
+      </div>
+      <span class="ratio-badge up">+20.0%</span>
+    </div>
+    <a href="colors/sugar_3440.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HOSHINO KAKERA</div>
+        <div class="sub">W210×D210×H820mm ／ (ほしのかけら) お試しアソートボックス</div>
+      </div>
+      <span class="badge-new">NEW</span>
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥3,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥3,400</div>
+      </div>
+      <span class="ratio-badge up">+13.3%</span>
+    </div>
+    <a href="colors/hoshino_kakera_3637.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+</div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>CARRY BAG（キャリーバッグ）<span class="count">43点</span></h2>
+    <p style="font-size:12px;color:var(--ink-soft);margin:0 0 12px;">
+      ※欠品情報は星野株式会社の発表（2026年05月15日時点）。表示の無い色は通常通り出荷可能です。
+    </p>
+<div class="cards">
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-SS</div>
+        <div class="sub">W150×G135×H170mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥180</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥220</div>
+      </div>
+      <span class="ratio-badge up">+22.2%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      02 ﾍﾞｰｼﾞｭ → 2026年7月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/k-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-S</div>
+        <div class="sub">W230×G200×H240mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥230</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥280</div>
+      </div>
+      <span class="ratio-badge up">+21.7%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      01 ﾎﾜｲﾄ → 2026年5月下旬以降納品にてご注文承り中<br/>03 ﾌﾞﾗｳﾝ → 2026年6月中旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/k-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-M</div>
+        <div class="sub">W290×G250×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥290</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥380</div>
+      </div>
+      <span class="ratio-badge up">+31.0%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      03 ﾌﾞﾗｳﾝ → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/k-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-L</div>
+        <div class="sub">W435×G300×H365mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥340</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥420</div>
+      </div>
+      <span class="ratio-badge up">+23.5%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中<br/>02 ﾍﾞｰｼﾞｭ → 2026年6月下旬以降納品にてご注文承り中<br/>03 ﾌﾞﾗｳﾝ → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/k-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-SL</div>
+        <div class="sub">W240×G220×H470mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥320</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥360</div>
+      </div>
+      <span class="ratio-badge up">+12.5%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      02 ﾍﾞｰｼﾞｭ → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/k-sl.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-LL</div>
+        <div class="sub">W320×G250×H555mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥440</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      03 ﾌﾞﾗｳﾝ → 2026年6月上旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/k-ll.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">K-SERIES K-TM</div>
+        <div class="sub">△300×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥500</div>
+      </div>
+      <span class="ratio-badge up">+25.0%</span>
+    </div>
+    <a href="colors/carrybag/k-tm.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ZB-SERIES ZB-SS</div>
+        <div class="sub">W150×G135×H170mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥240</div>
+      </div>
+      <span class="ratio-badge up">+20.0%</span>
+    </div>
+    <a href="colors/carrybag/zb-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">ZB-SERIES ZB-S</div>
+        <div class="sub">W230×G200×H240mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥270</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥300</div>
+      </div>
+      <span class="ratio-badge up">+11.1%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      04 ﾈｲﾋﾞｰ → 2026年7月下旬以降納品にてご注文承り中<br/>06 ﾌﾞﾗｯｸ → 2026年6月上旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/zb-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">ZB-SERIES ZB-M</div>
+        <div class="sub">W290×G250×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥340</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥420</div>
+      </div>
+      <span class="ratio-badge up">+23.5%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      06 ﾌﾞﾗｯｸ → 2026年8月上旬以降納品にてご注文承り中<br/>04 ﾈｲﾋﾞｰ → 2026年8月上旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/zb-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">ZB-SERIES ZB-L</div>
+        <div class="sub">W435×G300×H365mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥410</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥460</div>
+      </div>
+      <span class="ratio-badge up">+12.2%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      04 ﾈｲﾋﾞｰ → 2026年8月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/zb-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ZB-SERIES ZB-WS</div>
+        <div class="sub">W390×G220×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥340</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥420</div>
+      </div>
+      <span class="ratio-badge up">+23.5%</span>
+    </div>
+    <a href="colors/carrybag/zb-ws.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">ZB-SERIES ZB-TM</div>
+        <div class="sub">△300×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥500</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥560</div>
+      </div>
+      <span class="ratio-badge up">+12.0%</span>
+    </div>
+    <a href="colors/carrybag/zb-tm.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-SS</div>
+        <div class="sub">W150×G135×H170mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥360</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥360</div>
+      </div>
+      <span class="ratio-badge flat"></span>
+    </div>
+    <a href="colors/carrybag/hk-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-S</div>
+        <div class="sub">W230×G200×H240mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥390</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥440</div>
+      </div>
+      <span class="ratio-badge up">+12.8%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/hk-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-M</div>
+        <div class="sub">W290×G250×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥510</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥600</div>
+      </div>
+      <span class="ratio-badge up">+17.6%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      01 ﾎﾜｲﾄ → 2026年6月中旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/hk-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-L</div>
+        <div class="sub">W435×G300×H365mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥590</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥680</div>
+      </div>
+      <span class="ratio-badge up">+15.3%</span>
+    </div>
+    <a href="colors/carrybag/hk-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-JS</div>
+        <div class="sub">W250×G180×H250mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥390</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥440</div>
+      </div>
+      <span class="ratio-badge up">+12.8%</span>
+    </div>
+    <a href="colors/carrybag/hk-js.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-JM</div>
+        <div class="sub">W350×G230×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥510</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥600</div>
+      </div>
+      <span class="ratio-badge up">+17.6%</span>
+    </div>
+    <a href="colors/carrybag/hk-jm.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-BS</div>
+        <div class="sub">W350×H500mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥430</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥440</div>
+      </div>
+      <span class="ratio-badge up">+2.3%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/hk-bs.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">HK-SERIES HK-BM</div>
+        <div class="sub">W500×H600mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥510</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥560</div>
+      </div>
+      <span class="ratio-badge up">+9.8%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      01 ﾎﾜｲﾄ → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/hk-bm.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WAX BAG WAX BAG-SS</div>
+        <div class="sub">W150×G135×H170mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥230</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥280</div>
+      </div>
+      <span class="ratio-badge up">+21.7%</span>
+    </div>
+    <a href="colors/carrybag/wax-bag-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WAX BAG WAX BAG-S</div>
+        <div class="sub">W230×G200×H240mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥270</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥360</div>
+      </div>
+      <span class="ratio-badge up">+33.3%</span>
+    </div>
+    <a href="colors/carrybag/wax-bag-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">WAX BAG WAX BAG-M</div>
+        <div class="sub">W290×G250×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥320</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥480</div>
+      </div>
+      <span class="ratio-badge up">+50.0%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      全色 → 2026年6月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/wax-bag-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WAX BAG WAX BAG-L</div>
+        <div class="sub">W435×G300×H365mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥460</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥540</div>
+      </div>
+      <span class="ratio-badge up">+17.4%</span>
+    </div>
+    <a href="colors/carrybag/wax-bag-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WW-SERIES WW-SS</div>
+        <div class="sub">W150×G135×H170mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥270</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥300</div>
+      </div>
+      <span class="ratio-badge up">+11.1%</span>
+    </div>
+    <a href="colors/carrybag/ww-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WW-SERIES WW-S</div>
+        <div class="sub">W230×G200×H240mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥360</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥400</div>
+      </div>
+      <span class="ratio-badge up">+11.1%</span>
+    </div>
+    <a href="colors/carrybag/ww-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WW-SERIES WW-M</div>
+        <div class="sub">W290×G250×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥590</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥600</div>
+      </div>
+      <span class="ratio-badge up">+1.7%</span>
+    </div>
+    <a href="colors/carrybag/ww-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WW-SERIES WW-L</div>
+        <div class="sub">W435×G300×H365mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥660</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥680</div>
+      </div>
+      <span class="ratio-badge up">+3.0%</span>
+    </div>
+    <a href="colors/carrybag/ww-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">DN-SERIES DN-SS</div>
+        <div class="sub">W150×G135×H170mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥280</div>
+      </div>
+      <span class="ratio-badge up">+40.0%</span>
+    </div>
+    <a href="colors/carrybag/dn-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">DN-SERIES DN-S</div>
+        <div class="sub">W230×G200×H240mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥280</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥360</div>
+      </div>
+      <span class="ratio-badge up">+28.6%</span>
+    </div>
+    <a href="colors/carrybag/dn-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">DN-SERIES DN-M</div>
+        <div class="sub">W290×G250×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥340</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥480</div>
+      </div>
+      <span class="ratio-badge up">+41.2%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      全色 → 2026年6月上旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/dn-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">DN-SERIES DN-L</div>
+        <div class="sub">W435×G300×H365mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥540</div>
+      </div>
+      <span class="ratio-badge up">+35.0%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      全色 → 2026年8月上旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/dn-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">DN-SERIES DN-TM</div>
+        <div class="sub">△300×H300mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥440</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥580</div>
+      </div>
+      <span class="ratio-badge up">+31.8%</span>
+    </div>
+    <a href="colors/carrybag/dn-tm.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card has-stock">
+    <div class="head">
+      <div>
+        <div class="name">DN-SERIES DN-IP</div>
+        <div class="sub">□280×H430×底□150mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥400</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥500</div>
+      </div>
+      <span class="ratio-badge up">+25.0%</span>
+    </div>
+    <div class="stock-warn">
+      <b>⚠ 欠品色あり</b>
+      全色 → 2026年5月下旬以降納品にてご注文承り中
+    </div>
+    <a href="colors/carrybag/dn-ip.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WK-SERIES WK-SS</div>
+        <div class="sub">W180×G100×H200mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥180</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥200</div>
+      </div>
+      <span class="ratio-badge up">+11.1%</span>
+    </div>
+    <a href="colors/carrybag/wk-ss.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WK-SERIES WK-S</div>
+        <div class="sub">W260×G160×H280mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥200</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥220</div>
+      </div>
+      <span class="ratio-badge up">+10.0%</span>
+    </div>
+    <a href="colors/carrybag/wk-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WK-SERIES WK-M</div>
+        <div class="sub">W350×G220×H380mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥250</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥280</div>
+      </div>
+      <span class="ratio-badge up">+12.0%</span>
+    </div>
+    <a href="colors/carrybag/wk-m.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">WK-SERIES WK-L</div>
+        <div class="sub">W380×G150×H500mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥270</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥300</div>
+      </div>
+      <span class="ratio-badge up">+11.1%</span>
+    </div>
+    <a href="colors/carrybag/wk-l.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">GB-SERIES GB-S</div>
+        <div class="sub">W260×G160×H265mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥180</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥200</div>
+      </div>
+      <span class="ratio-badge up">+11.1%</span>
+    </div>
+    <a href="colors/carrybag/gb-s.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">GB-SERIES GB-S用底板</div>
+        <div class="sub">250×150mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥6</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥7</div>
+      </div>
+      <span class="ratio-badge up">+16.7%</span>
+    </div>
+    <a href="colors/carrybag/gb-s用底板.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">HANDLE BAG</div>
+        <div class="sub">W220×G110×H270mm フラップ80mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥280</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥300</div>
+      </div>
+      <span class="ratio-badge up">+7.1%</span>
+    </div>
+    <a href="colors/carrybag/handle-bag.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+
+  <article class="card">
+    <div class="head">
+      <div>
+        <div class="name">R-BAG</div>
+        <div class="sub">W390×G200×H360/口折45mm</div>
+      </div>
+      
+    </div>
+    <div class="price-block">
+      <div>
+        <span class="yen-unit"><span class="price-old">¥2,000</span> <span class="price-arrow">→</span></span>
+        <div class="price-new">¥2,400</div>
+      </div>
+      <span class="ratio-badge up">+20.0%</span>
+    </div>
+    <a href="colors/carrybag/r-bag.html" target="_blank" rel="noopener" class="link-btn">🎨 色見本（発注） →</a>
+  </article>
+</div>
+  </section>
+
+  <div class="note">
+    ※価格はすべて<b>税抜上代</b>です。卸価格・お見積もりについては神戸リボンまで個別にお問い合わせください。<br>
+    ※「現上代」はHOSオンラインショップ公開時点の参考価格、「新上代」は星野株式会社新価格表（2026.6.21〜）に基づきます。<br>
+    ※赤字の納期表示が無い色は、現時点で通常通り出荷可能です。
+  </div>
+
+  <hr class="divider">
+
+  <section>
+    <h2>お問い合わせ</h2>
+    <p style="font-size:14px;">本案内に関するお問い合わせ・ご発注は、神戸リボン公式LINEまでご連絡ください。</p>
+    <div class="cta-row">
+      <a href="https://lin.ee/v4E9XHO" target="_blank" rel="noopener" class="cta cta-line">
+        <span class="ico">💬</span>神戸リボン公式LINEを開く
+      </a>
+    </div>
+    <p style="font-size:12px;color:var(--ink-soft);">
+      ※色見本ページからは、商品名・色名を入力した状態で公式LINEを開けます。
+    </p>
+  </section>
+
+  <footer>
+    神戸リボン株式会社　／　発信日：2026年05月15日
+  </footer>
+
+</div>
 </body>
 </html>

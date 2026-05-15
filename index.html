@@ -35,7 +35,21 @@
     margin: 18px 0 24px;
     text-align: center;
   }
+  @keyframes pdf-pulse {
+    0%, 100% { box-shadow: 0 2px 5px rgba(176,132,66,0.30), 0 0 0 0 rgba(200,150,80,0.65); }
+    70%      { box-shadow: 0 5px 14px rgba(176,132,66,0.45), 0 0 0 14px rgba(200,150,80,0); }
+  }
+  @keyframes pdf-shimmer {
+    0%   { transform: translateX(-180%) skewX(-22deg); opacity: 0; }
+    10%  { opacity: 1; }
+    50%  { opacity: 1; }
+    60%  { transform: translateX(260%)  skewX(-22deg); opacity: 0; }
+    100% { transform: translateX(260%)  skewX(-22deg); opacity: 0; }
+  }
   .download-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     display: inline-block;
     padding: 14px 24px;
     background: #b08442;
@@ -50,14 +64,35 @@
     transition: background .15s ease, transform .08s ease, box-shadow .15s ease;
     line-height: 1.4;
     margin: 6px 4px;
+    animation: pdf-pulse 2.4s ease-in-out infinite;
   }
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.70) 50%, transparent 100%);
+    animation: pdf-shimmer 3.4s ease-in-out infinite;
+    animation-delay: .6s;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .download-btn > * { position: relative; z-index: 1; }
   .download-btn:hover {
     background: #946d31;
     box-shadow: 0 3px 7px rgba(176,132,66,0.35);
+    animation-play-state: paused;
   }
+  .download-btn:hover::before { animation-play-state: paused; }
   .download-btn:active {
     transform: translateY(1px);
     box-shadow: 0 1px 3px rgba(176,132,66,0.28);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .download-btn { animation: none; }
+    .download-btn::before { display: none; }
   }
   .download-btn.alt {
     background: #fff;
@@ -130,13 +165,13 @@
 </p>
 <div class="download-cta">
 <a class="download-btn" href="https://docs.google.com/spreadsheets/d/11dyVpzsApa1dPREjbvZN7I21Nt6yc9HLjSxr7GXkbZA/export?format=pdf" target="_blank" rel="noopener">
-<span class="dl-main">PDFで閲覧</span>
+<span class="dl-main">PDFですべての価格改定内容を見る</span>
 <span class="dl-sub">HOSHINO 新価格表 全カテゴリ・全39ページ</span>
 </a>
 </div>
 <hr/>
 <h2>WRAPPING（包装紙）代表的な値上げ商品 48点</h2>
-<p><small>※全体は上記の原本Excelをご確認ください。</small></p>
+<p><small>※こちらは代表例です。全商品の新価格は上記 PDF をご確認ください。</small></p>
 <table border="1" cellpadding="6" cellspacing="0" style="width:100%; table-layout:fixed; word-break:break-word; border-collapse:collapse;">
 <thead>
 <tr>
